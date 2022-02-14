@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="pagacss.css">
+    
+
+<body>
+    <div class="topnav">
+        <a class="active" href="#first-table">Paga ime</a>
+        <a href="#myChart">Grafikon</a>
+        <a style="float:right"  target="_blank" href="http://ujp.gov.mk/en">Ligji tatimorë</a>
+      </div>
+<table id="first-table" style="margin-bottom: 30px;   padding: 30px 25px;  width: 600px; "><tr><th>
+    Bruto
+    </th>
+    <th>
+    Neto
+    </th>
+    </tr>
+    <tr >
+    <td style="border-bottom: none;">
+    <input id="bruto-input" onkeyup="changefunction()" onchange="changefunction()" min="22146" step=1 title="Bruto" type="number" placeholder="0 den" style="box-sizing: border-box; line-height: 1.25; padding: 0.5rem 0.75rem;  width: 250px;  ">
+    </td>
+    <td style="border-bottom: none;">
+    <input id="neto-input" onchange="netfunction()" min="15194"  title="Neto" type="number" placeholder="0 den" style="box-sizing: border-box; line-height: 1.25; padding: 0.5rem 0.75rem; width: 250px;  ">
+    </td>
+   
+    </tr>
+</table>
+<table id="second-table" >
+    <tr style="font-weight: bold;background-color:whitesmoke; ">
+        <td  style="border-radius:  15px 0px 0px 15px;">
+        Bruto rroga
+        </td>
+        <td align="right" style=" padding: 15px;">
+        </td>
+        <td id="bruto-output"  align="right" style=" padding: 15px;">
+        0
+        </td>
+        <td align="right" style=" padding: 15px; border-radius: 0px 15px 15px 0px;">
+        den
+        </td>
+    </tr>
+    <tr>
+        <td style="border-radius:  0px 0px 0px 15px;">
+        Kontributet e përmbajtjes së PIO-së(sigurimit invalidor dhe pensional)
+        </td>
+        <td id="pio-percent" align="right" >
+        <b>18.80%</b>
+        </td>
+        <td  id="pio-output" align="right" >
+        0
+        </td>
+        <td align="right" style="border-radius: 0px 15px 15px 0px;">
+        den
+        </td>
+    </tr>
+    <tr>
+        <td style="border-radius:  0px 0px 0px 15px;">
+        Kontributet e sigurimit të detyrueshëm shëndetësor
+        </td>
+        <td align="right" >
+        <b>7.50%</b>
+        </td>
+        <td id="health-output" align="right" >
+        0
+        </td>
+        <td align="right" style="border-radius: 0px 0px 15px 0px;">
+        den
+        </td>
+    </tr>
+    <tr>
+        <td style="border-radius:  0px 0px 0px 15px;">
+        Kontribut shtesë sigurimi në rast lëndimi ose sëmundjeje profesionale
+        </td>
+        <td align="right" >
+        <b>0.50%</b>
+        </td>
+        <td id="work-releated-accident" align="right" >
+        0
+        </td>
+        <td align="right" style="border-radius: 0px 0px 15px 0px;">
+        den
+        </td>
+    </tr>
+    <tr>
+        <td style="border-radius:  0px 0px 0px 15px;">
+        Kontributet e punësimit
+        </td>
+        <td align="right" >
+        <b>1.20%</b>
+        </td>
+        <td id="employment-contributions" align="right"  >
+        0
+        </td>
+        <td align="right" style="border-radius: 0px 0px 15px 0px;">
+        den
+        </td>
+    </tr>
+        <tr style="font-weight: bold ;background-color:whitesmoke; ">
+        <td style="border-radius:  15px 0px 0px 15px; " >
+        Gjithësej kontribute
+        </td>
+        <td align="right" >
+        </td>
+        <td id="total-output" align="right" >
+        0
+        </td>
+        <td id="total" align="right" style="border-radius: 0px 15px 15px 0px;">
+        den
+        </td>
+    </tr>
+    <tr>
+        <td style="border-radius:  0px 0px 0px 15px;">
+        Bruto rroga e zvogëluar për kontributet 
+        </td>
+        <td align="right" >
+        </td>
+        <td id="reduced-salary" align="right" >
+        0
+        </td>
+        <td align="right" style="border-radius: 0px 0px 15px 0px;">
+        den
+        </td>
+    </tr>
+    <tr>
+        <td style="border-radius:  0px 0px 0px 15px;">
+        Lirimi tatimorë
+        </td>
+        <td align="right" >
+        </td>
+        <td align="right" >
+        8438
+        </td>
+        <td align="right" style="border-radius: 0px 0px 15px 0px;">
+        den
+    </td>
+        </tr>
+        <tr>
+        <td style="border-radius:  0px 0px 0px 15px;">
+        Baza tatimore
+        </td>
+        <td align="right" >
+        </td>
+        <td id="tax-base" align="right" >
+        0
+        </td>
+        <td align="right" style="border-radius: 0px 0px 15px 0px;">
+        den
+        </td>
+    </tr>
+    <tr>
+        <td style="border-radius:  0px 0px 0px 15px;"> 
+            Baza tatimore për përllogatitje të tatimit 10% ( baza prej 90.000 denarë)
+        </td>
+        <td align="right" >
+        <b>10%</b>
+        </td>
+        <td id="base-t10" align="right" >
+        0
+        </td>
+        <td align="right" style="border-radius: 0px 0px 15px 0px;">
+        den
+        </td> 
+    </tr>
+    <tr style="font-weight: bold; background-color: whitesmoke;">
+        <td style="border-radius:  15px 0px 0px 15px;">
+            Tatimi personal 10% 
+        </td>
+        <td align="right" >
+        </td>
+        <td id="personal-tax-10" align="right" >
+        0</td>
+        <td align="right" style="border-radius: 0px 15px 15px 0px;">
+        den
+        </td>
+    </tr>
+    <tr>
+        <td  style="border-radius:  0px 0px 0px 15px;">
+        Baza tatimore për TVSH 18% (për bazë tatimore mbi  90.000 den)
+        </td>
+        <td align="right" >
+        <b>18%</b>
+        </td>
+        <td id="base-t18" align="right" >
+        0</td>
+        <td align="right" style="border-radius: 0px 0px 15px 0px;">
+        den
+        </td>
+    </tr>
+    <tr style="font-weight: bold; background: whitesmoke;  ">
+        <td style="border-radius:  15px 0px 0px 15px;">
+        TVSH 18% 
+        </td>
+        <td align="right" >
+        18%
+        </td>
+        <td id="personal-tax-18" align="right" >
+        0</td>
+        <td  align="right" style="border-radius: 0px 15px 15px 0px;" >
+        den
+        </td>
+    </tr>
+    <tr style="background: whitesmoke; font-weight: bold;">
+            <td style="border-radius:  15px 0px 0px 15px;">
+        Gjithësej  
+        </td>
+        <td align="right" >
+        </td>
+        <td id="total2" align="right" >
+        0
+        </td>
+        <td align="right" style="border-radius: 0px 15px 15px 0px;" >
+        den
+        </td>
+    </tr>
+    <tr style="font-weight: bold; background: whitesmoke;">
+        <td style="border-radius:  15px 0px 0px 15px;" >
+        Neto rroga 
+        </td>
+        <td align="right" >
+        </td>
+        <td id="neto" align="right" >
+        0
+        </td>
+        <td align="right" style="border-radius: 0px 15px  15px 0px;" >
+        den
+        </td>
+    </tr>
+</table>
+<canvas id="myChart"></canvas>
+<script src="myscripts.js"></script>
+
+</body>
+</html>

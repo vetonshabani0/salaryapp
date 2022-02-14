@@ -1,0 +1,134 @@
+body{
+    /* background-image: url(); */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+.topnav {
+    background-color: whitesmoke;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 0  0 10px 10px ;
+    position:fixed;
+    margin-bottom: 15px;
+    margin-top: -8px;
+    z-index: 1;
+    border-bottom: solid turquoise;
+  }
+  .topnav a {
+    float: left ;
+    color: turquoise;
+    font-weight: bolder;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  .topnav a.active {
+    background: linear-gradient(to right, turquoise, greenyellow);
+    color: white;
+  }
+#first-table{
+    position: relative;
+    background-color: whitesmoke;
+    background-clip: padding-box;
+    border: solid 8px transparent;
+    border-radius: 15px 0px 15px 0px;   
+    padding-bottom: 0px; 
+    margin-top: 60px;
+}
+#second-table{
+    position: relative;
+    background-color: white;
+    background-clip: padding-box;
+    border: solid 8px transparent;
+    border-radius: 25px 25px 25px 25px; 
+    border-spacing: 0px;
+}
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+}
+#bruto-input , #neto-input{
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bolder;
+    
+    background-clip: initial;
+}
+#bruto-input:hover, #neto-input:hover{
+    font-family: sans-serif;
+}
+#bruto-input{
+    background: linear-gradient(to left, turquoise, greenyellow);
+}
+#neto-input{
+    background: linear-gradient(to left, greenyellow, turquoise);
+}
+#first-table::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -8px;
+    border-radius: inherit;
+    background: linear-gradient(to left, turquoise, greenyellow);
+}#second-table::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -8px;
+    border-radius: inherit;
+    background: linear-gradient(to right, turquoise, greenyellow);
+} 
+.bruto{
+    display: flex;
+}
+.box{
+    display: flex;
+}
+.pio{
+    display: flex;
+}
+.pzzo{
+    display: flex;
+}
+.vrabotuvanje{
+    display: flex;
+}
+.pzzo_value{
+    display:flex;
+}
+
+td{
+    /* border-bottom: 3px solid greenyellow; */
+    border-bottom:3px solid greenyellow;
+
+    
+    padding: 15px;
+}
+#myChart{
+    margin-top: 20px;
+    
+    font-size: larger !important;
+    height: 75% !important;
+    width: 75% !important;
+    margin-bottom: 50px;
+}
